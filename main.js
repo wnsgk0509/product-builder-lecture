@@ -10,3 +10,7 @@ document.getElementById('generate-btn').addEventListener('click', () => {
         el.textContent = sortedNumbers[index];
     });
 });
+
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
