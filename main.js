@@ -15,9 +15,9 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const themeToggleBtn = document.getElementById('theme-toggle');
     if (document.body.classList.contains('dark-mode')) {
-        themeToggleBtn.textContent = 'Light Mode';
+        themeToggleBtn.textContent = '라이트 모드';
     } else {
-        themeToggleBtn.textContent = 'Dark Mode';
+        themeToggleBtn.textContent = '다크 모드';
     }
 });
 
@@ -25,9 +25,9 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     if (document.body.classList.contains('dark-mode')) {
-        themeToggleBtn.textContent = 'Light Mode';
+        themeToggleBtn.textContent = '라이트 모드';
     } else {
-        themeToggleBtn.textContent = 'Dark Mode';
+        themeToggleBtn.textContent = '다크 모드';
     }
 
     // Handle contact form submission
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formEndpoint = contactForm.action;
 
             // Display a loading message
-            formMessages.textContent = 'Sending message...';
+            formMessages.textContent = '메시지를 보내는 중...';
             formMessages.className = 'message loading';
 
             try {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    formMessages.textContent = 'Message sent successfully! We will get back to you soon.';
+                    formMessages.textContent = '메시지가 성공적으로 전송되었습니다! 곧 연락드리겠습니다.';
                     formMessages.className = 'message success';
                     contactForm.reset(); // Clear the form
                 } else {
@@ -63,12 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (data.errors) {
                         formMessages.textContent = data.errors.map(err => err.message).join(', ');
                     } else {
-                        formMessages.textContent = 'Oops! There was a problem sending your message.';
+                        formMessages.textContent = '죄송합니다! 메시지를 보내는 데 문제가 발생했습니다.';
                     }
                     formMessages.className = 'message error';
                 }
             } catch (error) {
-                formMessages.textContent = 'Oops! Network error. Please try again later.';
+                formMessages.textContent = '죄송합니다! 네트워크 오류가 발생했습니다. 나중에 다시 시도해 주세요.';
                 formMessages.className = 'message error';
             } finally {
                 // Clear the message after 5 seconds
