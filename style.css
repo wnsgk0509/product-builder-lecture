@@ -10,6 +10,9 @@
     --btn-hover-bg: #48c9b0;
     --input-border: #ccc;
     --input-focus-border: #4a90e2;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --loading-color: #ffc107;
 }
 
 body.dark-mode {
@@ -21,6 +24,9 @@ body.dark-mode {
     --btn-hover-bg: #50e3c2;
     --input-border: #555;
     --input-focus-border: #4a90e2;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --loading-color: #ffc107;
 }
 
 body {
@@ -172,4 +178,40 @@ h1 {
 .contact-form .submit-btn:hover {
     background-color: var(--btn-hover-bg);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Messages Styles */
+#form-messages {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#form-messages.success {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#form-messages.error {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#form-messages.loading {
+    background-color: #fff3cd;
+    color: var(--loading-color);
+    border: 1px solid var(--loading-color);
+    opacity: 1;
+    transform: translateY(0);
 }
