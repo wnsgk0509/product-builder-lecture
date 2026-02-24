@@ -188,26 +188,49 @@ main {
 }
 
 /* Contact Form Specific Styles */
+.contact-form .form-group {
+    display: flex; /* Make it a flex container */
+    align-items: center; /* Vertically align items */
+    margin-bottom: 20px;
+    text-align: left; /* Keep default for other elements inside */
+}
+
+.contact-form label {
+    flex-basis: 100px; /* Fixed width for labels */
+    flex-shrink: 0; /* Prevent label from shrinking */
+    margin-bottom: 0; /* Remove bottom margin if using flex */
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: left; /* Align label text to left */
+}
+
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    width: calc(100% - 20px); /* Account for padding */
-    padding: 12px; /* Slightly more padding */
+    flex-grow: 1; /* Allow input to take remaining space */
+    width: auto; /* Override calc(100% - 20px) */
+    padding: 12px;
     border: 1px solid var(--input-border);
-    border-radius: 12px; /* Softer corners */
+    border-radius: 12px;
     font-size: 16px;
     background-color: var(--container-bg);
     color: var(--text-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle depth */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
-    border-color: var(--primary-color); /* Use primary color on focus */
-    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3); /* Stronger focus highlight */
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3);
     outline: none;
+}
+
+.contact-form .submit-btn {
+    display: block; /* Make it a block element */
+    margin: 30px auto 15px auto; /* Center the button and adjust margins */
+    width: fit-content; /* Adjust width to content */
 }
 
 /* Footer */
@@ -262,4 +285,22 @@ main {
 @media (max-width: 600px) {
     .nav-menu { display: none; }
     .number { width: 45px; height: 45px; font-size: 16px; }
+
+    /* Responsive adjustments for contact form */
+    .contact-form .form-group {
+        flex-direction: column; /* Stack label and input vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .contact-form label {
+        flex-basis: auto; /* Reset flex-basis */
+        width: 100%; /* Label takes full width */
+        margin-bottom: 8px; /* Add some space below label */
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: calc(100% - 24px); /* Full width minus padding */
+    }
 }
