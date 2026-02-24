@@ -1,4 +1,3 @@
-
 document.getElementById('generate-btn').addEventListener('click', () => {
     const numbers = new Set();
     while (numbers.size < 6) {
@@ -31,7 +30,29 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
     }
 });
 
-// Initialize button text on load
+// 섹션 표시/숨김 관리 함수
+function showSection(sectionId) {
+    const allSections = document.querySelectorAll('main > section, .policy-section');
+    allSections.forEach(section => {
+        section.style.display = 'none';
+        section.classList.remove('section-active'); // Remove active class for all sections
+    });
+
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+        targetSection.classList.add('section-active'); // Add active class to target section
+        window.scrollTo(0, 0); // Scroll to top when section changes
+    } else {
+        // Fallback for non-existent sections, or when navigating away from policy pages
+        // Show main generator section by default
+        document.getElementById('generator').style.display = 'block';
+        document.getElementById('generator').classList.add('section-active');
+        window.scrollTo(0, 0);
+    }
+}
+
+// 초기 로딩 시 해시 기반으로 섹션 표시
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     if (document.body.classList.contains('dark-mode')) {
@@ -89,4 +110,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 푸터 및 네비게이션 링크 클릭 이벤트 처리
+    document.querySelectorAll('nav a, .footer-nav a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').substring(1);
+            showSection(targetId);
+        });
+    });
+
+    // URL 해시가 있다면 해당 섹션 표시, 없으면 첫 섹션 표시
+    if (window.location.hash) {
+        showSection(window.location.hash.substring(1));
+    } else {
+        showSection('generator'); // 기본으로 번호 생성기 섹션을 보여줍니다.
+    }
 });
+
