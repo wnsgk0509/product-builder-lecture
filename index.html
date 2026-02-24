@@ -100,6 +100,10 @@
             <h2>커뮤니티 의견</h2>
             <div id="disqus_thread"></div>
             <script>
+                var disqus_config = function () {
+                    this.page.url = 'https://product-builder-lecture.pages.dev/';
+                    this.page.identifier = 'product-builder-lecture-main';
+                };
                 (function() { 
                 var d = document, s = d.createElement('script');
                 s.src = 'https://productbuilder-jarpvjstel.disqus.com/embed.js';
