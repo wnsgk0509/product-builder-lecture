@@ -187,6 +187,29 @@ main {
     margin-bottom: 10px;
 }
 
+/* Contact Form Specific Styles */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 12px; /* Slightly more padding */
+    border: 1px solid var(--input-border);
+    border-radius: 12px; /* Softer corners */
+    font-size: 16px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle depth */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color); /* Use primary color on focus */
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3); /* Stronger focus highlight */
+    outline: none;
+}
+
 /* Footer */
 .main-footer {
     background-color: var(--footer-bg);
