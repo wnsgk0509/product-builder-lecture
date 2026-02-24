@@ -24,7 +24,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
         DISQUS.reset({
             reload: true,
             config: function () {
-                this.page.url = 'https://product-builder-lecture.pages.dev/';
+                this.page.url = 'https://product-builder-lecture-a7r.pages.dev/';
                 this.page.identifier = 'product-builder-lecture-main';
             }
         });
